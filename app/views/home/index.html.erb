@@ -1,0 +1,26 @@
+<%# embedded ruby thats rendering react component App where App is being passed props%>
+
+<%= react_component "App", {
+  logged_in: user_signed_in?, #true or false?
+  current_user: current_user, #some user object
+
+  #defining keys where the value is a route alias
+  new_user_route: new_user_registration_path,
+  sign_in_route: new_user_session_path,
+  sign_out_route: destroy_user_session_path
+} %>
+
+<%# 
+  logged in: true
+  current user: {id: 1, email: 'rebecca@testing.com', created_at: '2021-11-04T18:09:36.835Z', updated_at: '2021-11-04T20:40:43.273Z'}
+  App.js:7 sign up /users/sign_up
+  App.js:8 sign in: /users/sign_in
+  App.js:9 sign out: /users/sign_out
+%>
+
+<%# 
+  Otherwise:
+  logged in: false
+  current user: null
+
+ %>
