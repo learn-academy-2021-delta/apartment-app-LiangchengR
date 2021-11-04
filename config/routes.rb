@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # resources :apartments
+  resources :apartments
   devise_for :users
-  # get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
-  # root 'home#index'
+  
+  # separate the Rails routing responsibilities, and the React routing responsibilities 
+  # directs all HTML traffic to the 'home#index' route, but ignores non HTML traffic, like our API requests
+  get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
+  # route the index.html.erb page to root
+  root 'home#index'
 end

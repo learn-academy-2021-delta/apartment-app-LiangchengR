@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /* scss or pronounced sass is a superset of css and includes all of the normal css commands */
+
+ @import 'bootstrap';
+ 
+ 
+ .dropdown-item { background-color: white;}
