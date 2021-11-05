@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# appartments = [
+#     {
+#         street:,
+#         city:,
+#         state:, 
+#         manager:,
+#         email:,
+#         price:,
+#         bedrooms:,
+#         bathrooms:,
+#         pets:,
+#         user_id:
+#     }
+# ]
+
+# appartments.each do |attributes|
+#     Appartment.create attributes
+#     puts "creating appartment #{attributes}"
+# end
