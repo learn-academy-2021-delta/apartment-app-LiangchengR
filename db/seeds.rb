@@ -6,22 +6,48 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# appartments = [
-#     {
-#         street:,
-#         city:,
-#         state:, 
-#         manager:,
-#         email:,
-#         price:,
-#         bedrooms:,
-#         bathrooms:,
-#         pets:,
-#         user_id:
-#     }
-# ]
+apartments = [
+    {
+        street:"8694 New Salem St UNIT 202", 
+        city:"San Diego",
+        state:"CA", 
+        manager:"Vani Bobba",
+        email:"vbob@test.com",
+        price:515000,
+        bedrooms:2,
+        bathrooms:2,
+        pets: "true",
+        user_id: nil
+    },
 
-# appartments.each do |attributes|
-#     Appartment.create attributes
-#     puts "creating appartment #{attributes}"
-# end
+    {
+        street:"13312 Caminito Ciera UNIT 194", 
+        city:"San Diego",
+        state:"CA", 
+        manager:"Diana Phan",
+        email:"dphan@test.com",
+        price:505000,
+        bedrooms:4,
+        bathrooms:3,
+        pets: "true",
+        user_id: nil
+    },
+
+    {
+        street:"6460 Convoy Ct SPACE 112", 
+        city:"Detroit",
+        state:"MI", 
+        manager:"Tyler Thomas",
+        email:"tthomas@test.com",
+        price:600000,
+        bedrooms:5,
+        bathrooms:4,
+        pets: "true",
+        user_id: nil
+    }
+]
+
+apartments.each do |attributes|
+    Apartment.create attributes
+    puts "creating apartment #{attributes}"
+end

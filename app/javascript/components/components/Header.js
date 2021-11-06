@@ -34,7 +34,7 @@ export default class Header extends Component {
               <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Apartments</NavLink>
+              <NavLink href="/apartmentindex">Apartments</NavLink>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>

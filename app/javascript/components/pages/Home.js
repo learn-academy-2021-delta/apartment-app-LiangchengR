@@ -6,8 +6,10 @@ export default class Home extends Component {
           <>
             <div className="home-container">
               <h1>Find your Place</h1>
+
             </div>
           </>
+          
         );
     }
 }
