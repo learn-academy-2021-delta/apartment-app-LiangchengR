@@ -17,7 +17,7 @@ apartments = [
         bedrooms:2,
         bathrooms:2,
         pets: "true",
-        user_id: nil
+        user_id: 1
     },
 
     {
@@ -30,7 +30,7 @@ apartments = [
         bedrooms:4,
         bathrooms:3,
         pets: "true",
-        user_id: nil
+        user_id: 1
     },
 
     {
@@ -43,7 +43,7 @@ apartments = [
         bedrooms:5,
         bathrooms:4,
         pets: "true",
-        user_id: nil
+        user_id: 1
     }
 ]
 
@@ -51,3 +51,6 @@ apartments.each do |attributes|
     Apartment.create attributes
     puts "creating apartment #{attributes}"
 end
+
+# user = User.create! :email => 'rebecca@testing.com', :password => '123456', :password_confirmation => '123456'
+

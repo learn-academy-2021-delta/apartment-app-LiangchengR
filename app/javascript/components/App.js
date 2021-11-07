@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   BrowserRouter as Router,
   Route,
@@ -10,14 +9,14 @@ import LearnMore from "./pages/LearnMore";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import mockApartments from './mockApartments.js'
+// import mockApartments from './mockApartments.js'
 import ApartmentIndex from "./pages/ApartmentIndex";
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      apartments: mockApartments,
+      apartments: [],
     }
   }
 
@@ -26,7 +25,7 @@ class App extends Component {
   }
 
   apartmentRead = () => {
-    fetch("http://localhost:3000/apartments")
+    fetch("/apartments")
       .then(response => response.json())
       .then(apartmentsArray => this.setState({ apartments: apartmentsArray }))
       .catch(errors => console.log('Apartment read errors:', errors))
@@ -41,7 +40,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              element={<Home homeToggle={this.state.homeLoaded} />}
+              element={<Home />}
             />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/learn" element={<LearnMore />} />
