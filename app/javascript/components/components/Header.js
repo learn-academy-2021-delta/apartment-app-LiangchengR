@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import logo from "../assets/logo.png"
 
 export default class Header extends Component {
   render() {
@@ -28,7 +29,13 @@ export default class Header extends Component {
           fixed="top"
           light
         >
-          <NavbarBrand href="/">Sweet Home</NavbarBrand>
+          <NavbarBrand href="/">
+            <img
+              src={logo}
+              alt="logo with house leaves and Flat Finder"
+              className="logo"
+            />
+          </NavbarBrand>
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>

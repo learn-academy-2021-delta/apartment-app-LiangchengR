@@ -15,10 +15,7 @@ export default class ApartmentIndex extends Component {
                   <CardTitle tag="h5">{apartment.street}</CardTitle>
                   <CardText className="text-muted">
                     street: {apartment.street} city: {apartment.city}, state:
-                    {apartment.state}, , price: {apartment.price}, bedrooms:{" "}
-                    {apartment.bedrooms}, bathrooms: {apartment.bathrooms},
-                    pets:
-                    {apartment.pets}
+                    {apartment.state}
                   </CardText>
                     <Button>More Info</Button>
                 </CardBody>

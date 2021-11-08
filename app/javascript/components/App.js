@@ -27,11 +27,12 @@ class App extends Component {
   apartmentRead = () => {
     fetch("/apartments")
       .then(response => response.json())
-      .then(apartmentsArray => this.setState({ apartments: apartmentsArray }))
-      .catch(errors => console.log('Apartment read errors:', errors))
+      .then(payload => this.setState({ apartments: payload }))
+      .catch(errors => console.log('Apartment index errors:', errors))
   }
 
   render() {
+    const { apartments } = this.state
     return (
       <>
         <Router>
@@ -46,7 +47,7 @@ class App extends Component {
             <Route path="/learn" element={<LearnMore />} />
             <Route
               path="/apartmentindex"
-              element={<ApartmentIndex apartments={this.state.apartments} />}
+              element={<ApartmentIndex apartments={apartments} />}
             />
           </Routes>
 
@@ -58,9 +59,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// react visible to users javascript, rails is holding my data 
-// views- react routes0-resources controller-in rails for our db 
-//get react and active record to communicate -> cat tinder. 
-//how do different applicationstalk to each other how to get json from rails to our react 

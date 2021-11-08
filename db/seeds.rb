@@ -13,7 +13,7 @@ apartments = [
         state:"CA", 
         manager:"Vani Bobba",
         email:"vbob@test.com",
-        price:515000,
+        price:"$515,000",
         bedrooms:2,
         bathrooms:2,
         pets: "true",
@@ -26,11 +26,10 @@ apartments = [
         state:"CA", 
         manager:"Diana Phan",
         email:"dphan@test.com",
-        price:505000,
+        price:"$505,000",
         bedrooms:4,
         bathrooms:3,
-        pets: "true",
-        user_id: 1
+        pets: "true"
     },
 
     {
@@ -39,16 +38,17 @@ apartments = [
         state:"MI", 
         manager:"Tyler Thomas",
         email:"tthomas@test.com",
-        price:600000,
+        price:"$600,000",
         bedrooms:5,
         bathrooms:4,
-        pets: "true",
-        user_id: 1
+        pets: "true"
     }
 ]
 
+user = User.first
+
 apartments.each do |attributes|
-    Apartment.create attributes
+    user.apartments.create attributes
     puts "creating apartment #{attributes}"
 end
 
