@@ -1,11 +1,17 @@
 import React, { Component } from "react"
 
+
 export default class AboutUs extends Component {
     render() {
         return (
-            <>
-              <h3>My name is Rebecca and I'm committed to helping you find the perfect apartment.</h3>  
-            </>
-        )
+          <>
+            <div className="about-us-container">
+              <h3>
+                The Flat Finders' team is comprised of 20 customer service
+                orientated real estate professionals.{" "}
+              </h3>
+            </div>
+          </>
+        );
     }
 }

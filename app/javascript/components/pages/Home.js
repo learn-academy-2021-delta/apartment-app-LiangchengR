@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import bg from "../assets/app-bg.png"
+import { Button } from "reactstrap";
 
 export default class Home extends Component {
     render() {
@@ -10,16 +11,17 @@ export default class Home extends Component {
                 src={bg}
                 style={{
                   backgroundSize: "cover",
-                  maxWidth: "100%",
-                  height: "auto",
+                  width: "auto",
+                  maxHeight: "100%",
                   zIndex: "-1",
+                  backgroundPosition: " 50% 50%",
                 }}
               />
 
               <h2>
                 There is nothing more special than finding your own space.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 Welcome to Flat Finder where we show you the latest apartment
                 listings. Click on Apartments to start your journey!
               </h2>
