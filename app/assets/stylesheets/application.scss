@@ -94,3 +94,18 @@ header .header-login {
   justify-content: center;
   align-items: center;
 }
+
+//apartment index container
+.apartment-index-container{
+  margin: 40px;
+  display: flex;
+}
+.apartment-index-container .card{
+  margin: 10px;
+  text-align: center;
+
+}
+
+.apartment-index-container .card span{
+  margin: 10px;
+}
