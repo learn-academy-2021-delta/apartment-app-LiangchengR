@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import logo from "../assets/logo.png"
 
 export default class Header extends Component {
   render() {
-    console.log("logged in:", this.props.logged_in);
-    console.log("current user:", this.props.current_user);
-    console.log("sign up", this.props.new_user_route);
-    console.log("sign in:", this.props.sign_in_route);
-    console.log("sign out:", this.props.sign_out_route);
+    // console.log("logged in:", this.props.logged_in);
+    // console.log("current user:", this.props.current_user);
+    // console.log("sign up", this.props.new_user_route);
+    // console.log("sign in:", this.props.sign_in_route);
+    // console.log("sign out:", this.props.sign_out_route);
 
     const {
       logged_in,
@@ -28,13 +29,19 @@ export default class Header extends Component {
           fixed="top"
           light
         >
-          <NavbarBrand href="/">Sweet Home</NavbarBrand>
+          <NavbarBrand href="/">
+            <img
+              src={logo}
+              alt="logo with house leaves and Flat Finder"
+              className="logo"
+            />
+          </NavbarBrand>
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Apartments</NavLink>
+              <NavLink href="/apartmentindex">Apartments</NavLink>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>

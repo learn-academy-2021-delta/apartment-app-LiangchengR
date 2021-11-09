@@ -1,29 +1,111 @@
-@import 'bootstrap';
+@import "bootstrap";
 
+// affects all tags
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+// home styling
 .home-container {
-    background-image: url('/assets/app-bg.png');
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 2px 2px 10px #000000;
+}
+
+.home-container h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -95%);
+  color: white;
+  font-size: 3rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2%;
+}
+
+@media only screen and (max-width: 1900px) {
+  .home-container h2 {
+    color: white;
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .home-container h2 {
+    color: white;
+    font-size: 1.5rem;
+  }
 }
 
 //  Header Styling
- .header-nav{
-     height:5rem;
- }
 
- .header-nav NavbarBrand{
-     font-size: 1.75rem;
- }
- 
- header a:link{
-     text-decoration: none;
-     color: rgba(255, 255, 255, 0.55);
- }
+.logo {
+  height: 4rem;
+}
+.header-nav {
+  height: 5rem;
+}
 
- header a{
-     text-decoration: none;
-     color: rgba(255, 255, 255, 0.55);
- }
- 
- header .header-login{
-     padding: 10px;
- }
- 
+.header-nav NavbarBrand {
+  font-size: 1.75rem;
+}
+
+header a:link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+header a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+header .header-login {
+  padding: 10px;
+}
+
+//reactstrap class color adjustment
+
+.bg-dark {
+  background-color: #202729;
+}
+
+//learn more styling
+
+.learn-more-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.learn-more-container img, h3{
+  padding: 20px 50px 20px 50px;
+}
+
+//about me styling
+.about-us-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+//apartment index container
+.apartment-index-container{
+  margin: 40px;
+  display: flex;
+}
+.apartment-index-container .card{
+  margin: 10px;
+  text-align: center;
+
+}
+
+.apartment-index-container .card span{
+  margin: 10px;
+}
