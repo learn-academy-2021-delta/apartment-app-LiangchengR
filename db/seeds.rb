@@ -17,7 +17,6 @@ apartments = [
         bedrooms:2,
         bathrooms:2,
         pets: "true",
-        user_id: 1
     },
 
     {
