@@ -11,17 +11,26 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 // import mockApartments from './mockApartments.js'
 import ApartmentIndex from "./pages/ApartmentIndex";
+import ApartmentShow from "./pages/ApartmentShow";
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       apartments: [],
+      currentID: "",
+      currentApartment: undefined,
     }
   }
 
   componentDidMount() {
     this.apartmentRead()
+  }
+
+  getInfo = (id, apartment) => {
+    this.setState({ currentID: id, currentApartment: apartment })
+    console.log("getInfo ran");
+    
   }
 
   apartmentRead = () => {
@@ -38,16 +47,16 @@ class App extends Component {
         <Router>
           <Header {...this.props} />
           <Routes>
-            <Route
-              exact
-              path="/"
-              element={<Home />}
-            />
+            <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/learn" element={<LearnMore />} />
             <Route
               path="/apartmentindex"
-              element={<ApartmentIndex apartments={apartments} />}
+              element={<ApartmentIndex apartments={apartments} getInfo={this.getInfo} />}
+            />
+            <Route
+              path="/apartmentshow/:id"
+              element= {<ApartmentShow id={this.state.currentID} apartment={this.state.currentApartment} />}
             />
           </Routes>
 
@@ -59,3 +68,6 @@ class App extends Component {
 }
 
 export default App;
+
+//<Route path="profile" element={<Profile />}>
+            // <Route path=":id" element={<MyProfile />} />
