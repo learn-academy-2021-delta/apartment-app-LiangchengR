@@ -22,7 +22,7 @@ export default class ApartmentIndex extends Component {
           return (
             <Card className="card" key={apartment.id}>
               <CardBody>
-                <CardTitle tag="h5">{apartment.street}</CardTitle>
+                <CardTitle tag="h5">Apartment</CardTitle>
                 <CardText className="text-muted">
                   <span>
                     <FontAwesomeIcon icon={faRoad} className="fa-road" />
@@ -57,3 +57,4 @@ export default class ApartmentIndex extends Component {
   }
 }
 //``
+

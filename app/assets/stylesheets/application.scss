@@ -103,6 +103,7 @@ header .header-login {
 .apartment-index-container{
   margin: 40px;
   display: flex;
+  justify-content: center;
   margin-bottom: 100px;
 }
 .apartment-index-container .card{
@@ -115,10 +116,28 @@ header .header-login {
   margin: 10px;
 }
 
+.apartment-index-container svg{
+  margin-right: 10px;
+}
+
 //apartment show container
 .apartment-show-container{
-  margin: 40px;
+  margin: 40px 200px 40px 200px;
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
+  flex-direction: column;
+}
+
+.apartment-show-container-icons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.apartment-show-container svg{
+  margin-right: 10px;
+}
+
+.apartment-show-container a{
+  margin-top: 10px;
 }
