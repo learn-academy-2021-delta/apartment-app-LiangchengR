@@ -121,13 +121,16 @@ header .header-login {
 
 //apartment show container
 .apartment-show-container{
-  margin: 40px 200px 40px 200px;
   display: flex;
-  justify-content: center;
+  margin-top: 40px;
   margin-bottom: 100px;
   flex-direction: column;
+  align-items: center;
 }
 
+.apartment-show-container .card{
+  max-width: 65%;
+}
 .apartment-show-container-icons{
   display: flex;
   justify-content: flex-end;
@@ -141,3 +144,33 @@ header .header-login {
   margin-top: 10px;
 }
 
+//protected-index-container
+.protected-index-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  flex-direction: row;
+}
+
+.protected-index-container .card{
+  margin: 20px;
+  max-width: 25%;
+}
+
+.apartment-card-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.protected-index-container-icons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.protected-index-container svg{
+  margin-right: 10px;
+}
+
+.protected-index-container a{
+  margin-top: 10px;
+}

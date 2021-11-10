@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap"
+import React, { Component } from "react";
+import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { faRoad, faMap, faCity } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -57,4 +57,3 @@ export default class ApartmentIndex extends Component {
   }
 }
 //``
-

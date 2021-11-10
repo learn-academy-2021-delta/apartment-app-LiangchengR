@@ -54,9 +54,14 @@ export default class Header extends Component {
               </>
             )}
             {logged_in && (
-              <NavItem>
-                <a href={sign_out_route}>Sign Out</a>
-              </NavItem>
+              <>
+                <NavItem>
+                  <NavLink href="/protectedindex">My Apartments</NavLink>
+                </NavItem>
+                <NavItem>
+                  <a className="nav-link" href={sign_out_route}>Sign Out</a>
+                </NavItem>
+              </>
             )}
           </Nav>
         </Navbar>
