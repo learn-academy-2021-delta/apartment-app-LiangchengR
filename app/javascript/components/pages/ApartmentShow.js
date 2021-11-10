@@ -14,7 +14,6 @@ import { NavLink } from "react-router-dom";
 export default class ApartmentShow extends Component {
   render() {
     const { apartment, id } = this.props;
-    console.log(this.props.currentSession.current_user.id)
     
     return (
       <>

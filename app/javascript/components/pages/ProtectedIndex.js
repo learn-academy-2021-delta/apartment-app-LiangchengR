@@ -15,12 +15,10 @@ export default class ProtectedIndex extends Component {
   }
 
   returnInfo = (id, apartment) => {
-    console.log("passing id:" + id + " passing apartment" + apartment.street);
     this.props.getInfo(id, apartment);
   };
     
   render() {
-    console.log(this.props.user);
     const { apartments } = this.props;
     return (
       <div className="protected-index-container">
