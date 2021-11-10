@@ -31,7 +31,7 @@ export default class ApartmentShow extends Component {
             </CardBody>
             <img
               alt="placeholder"
-              src="http://placeimg.com/640/480/architecture"
+              src="http://placeimg.com/640/480/arch"
               width="100%"
             />
             <CardBody>
