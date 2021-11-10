@@ -9,7 +9,7 @@ let apartments = [
     bedrooms: 2,
     bathrooms: 2,
     pets: "true",
-    user_id: null,
+    user_id: 1,
   },
 
   {
@@ -22,7 +22,7 @@ let apartments = [
     bedrooms: 4,
     bathrooms: 3,
     pets: "true",
-    user_id: null,
+    user_id: 1,
   },
 
   {
@@ -35,8 +35,21 @@ let apartments = [
     bedrooms: 5,
     bathrooms: 4,
     pets: "true",
-    user_id: null,
+    user_id: 1,
   },
+
+  {
+    street: "123 Wellingtont UNIT 132",
+    city: "Middle Island",
+    state: "NY",
+    manager: "John Smith",
+    email: "jsmith@test.com",
+    price: "$5,000",
+    bedrooms: 1,
+    bathrooms: 1,
+    pets: "false",
+    user_id: 2
+  }
 ];
 
 export default apartments

@@ -53,3 +53,5 @@ end
 
 # user = User.create! :email => 'rebecca@testing.com', :password => '123456', :password_confirmation => '123456'
 
+# user2 = User.create! :email => 'brian@testing.com', :password => '123456', :password_confirmation => '123456'
+

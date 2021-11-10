@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import LearnMore from "./pages/LearnMore";
 import Home from "./pages/Home";
@@ -12,36 +8,43 @@ import Footer from "./components/Footer";
 // import mockApartments from './mockApartments.js'
 import ApartmentIndex from "./pages/ApartmentIndex";
 import ApartmentShow from "./pages/ApartmentShow";
+import ProtectedIndex from "./pages/ProtectedIndex";
 
 class App extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       apartments: [],
       currentID: "",
       currentApartment: undefined,
-    }
+      currentSession: {...this.props},
+    };
   }
 
   componentDidMount() {
-    this.apartmentRead()
+    this.apartmentRead();
   }
 
   getInfo = (id, apartment) => {
-    this.setState({ currentID: id, currentApartment: apartment })
+    this.setState({ currentID: id, currentApartment: apartment });
     console.log("getInfo ran");
-    
-  }
+  };
 
   apartmentRead = () => {
     fetch("/apartments")
-      .then(response => response.json())
-      .then(payload => this.setState({ apartments: payload }))
-      .catch(errors => console.log('Apartment index errors:', errors))
-  }
+      .then((response) => response.json())
+      .then((payload) => this.setState({ apartments: payload }))
+      .catch((errors) => console.log("Apartment index errors:", errors));
+  };
 
   render() {
-    const { apartments } = this.state
+    // console.log("logged in:", this.props.logged_in);
+    // console.log("current user:", this.props.current_user);
+    // console.log("sign up", this.props.new_user_route);
+    // console.log("sign in:", this.props.sign_in_route);
+    // console.log("sign out:", this.props.sign_out_route);
+
+    const { apartments } = this.state;
     return (
       <>
         <Router>
@@ -52,14 +55,38 @@ class App extends Component {
             <Route path="/learn" element={<LearnMore />} />
             <Route
               path="/apartmentindex"
-              element={<ApartmentIndex apartments={apartments} getInfo={this.getInfo} />}
+              element={
+                <ApartmentIndex
+                  apartments={apartments}
+                  getInfo={this.getInfo}
+                />
+              }
             />
             <Route
               path="/apartmentshow/:id"
-              element= {<ApartmentShow id={this.state.currentID} apartment={this.state.currentApartment} />}
+              element={
+                <ApartmentShow
+                  id={this.state.currentID}
+                  apartment={this.state.currentApartment}
+                  currentSession={this.state.currentSession}
+                />
+              }
             />
+            {this.props.logged_in && (
+              <Route
+                path="/protectedindex"
+                element={
+                  <ProtectedIndex
+                    apartments={apartments.filter(
+                      (apartment) =>
+                        apartment.user_id === this.props.current_user.id
+                    )}
+                    getInfo={this.getInfo}
+                  />
+                }
+              />
+            )}
           </Routes>
-
           <Footer />
         </Router>
       </>
@@ -68,6 +95,3 @@ class App extends Component {
 }
 
 export default App;
-
-//<Route path="profile" element={<Profile />}>
-            // <Route path=":id" element={<MyProfile />} />
