@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import ApartmentIndex from "./pages/ApartmentIndex";
 import ApartmentShow from "./pages/ApartmentShow";
 import ProtectedIndex from "./pages/ProtectedIndex";
+import ApartmentNew from "./pages/ApartmentNew";
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +38,25 @@ class App extends Component {
       .catch((errors) => console.log("Apartment index errors:", errors));
   };
 
+  createNewAp = (newAp) => {
+    console.log(newAp)
+    fetch("/apartments/new", {
+      body: JSON.stringify(newAp),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (response.status === 422) {
+          alert("Please check your submission.");
+        }
+        return response.json();
+      })
+      .then((payload) => this.apartmentRead())
+      .catch((errors) => console.log("Apartment create errors:", errors))
+  }
+
   render() {
     // console.log("logged in:", this.props.logged_in);
     // console.log("current user:", this.props.current_user);
@@ -59,6 +79,7 @@ class App extends Component {
                 <ApartmentIndex
                   apartments={apartments}
                   getInfo={this.getInfo}
+                  currentSession={this.state.currentSession}
                 />
               }
             />
@@ -86,6 +107,12 @@ class App extends Component {
                 }
               />
             )}
+            <Route
+              path="/apartmentnew"
+              element={
+                <ApartmentNew createNewAp={this.createNewAp}/>
+              }
+            />
           </Routes>
           <Footer />
         </Router>

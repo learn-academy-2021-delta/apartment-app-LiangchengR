@@ -17,17 +17,23 @@ export default class ApartmentShow extends Component {
     
     return (
       <>
+        <div className="other-bttn">
+          <NavLink to={"/apartmentindex"}>
+            <Button>Back</Button>
+          </NavLink>
+        </div>
         <div className="apartment-show-container">
           <Card key={apartment.id}>
             <CardBody>
               <div className="apartment-card-header">
                 <CardTitle tag="h5">Apartment Info</CardTitle>
-                { (this.props.currentSession.current_user.id === apartment.user_id) &&
-                  (<span className="apartment-show-container-icons">
+                {this.props.currentSession.current_user.id ===
+                  apartment.user_id && (
+                  <span className="apartment-show-container-icons">
                     <FontAwesomeIcon icon={faEdit} className="fa-edit" />
                     <FontAwesomeIcon icon={faTrash} className="fa-trash-alt" />
-                  </span>)
-                }
+                  </span>
+                )}
               </div>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 Street: {apartment.street}
@@ -61,9 +67,6 @@ export default class ApartmentShow extends Component {
               </CardText>
             </CardBody>
           </Card>
-          <NavLink to={"/apartmentindex"}>
-            <Button>Back</Button>
-          </NavLink>
         </div>
       </>
     );
