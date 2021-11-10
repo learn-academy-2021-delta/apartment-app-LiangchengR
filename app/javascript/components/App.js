@@ -40,7 +40,7 @@ class App extends Component {
 
   createNewAp = (newAp) => {
     console.log(newAp)
-    fetch("/apartments/new", {
+    fetch("/apartments", {
       body: JSON.stringify(newAp),
       headers: {
         "Content-Type": "application/json",
@@ -110,7 +110,10 @@ class App extends Component {
             <Route
               path="/apartmentnew"
               element={
-                <ApartmentNew createNewAp={this.createNewAp}/>
+                <ApartmentNew
+                  createNewAp={this.createNewAp}
+                  currentSession={this.state.currentSession}
+                />
               }
             />
           </Routes>

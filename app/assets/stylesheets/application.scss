@@ -103,11 +103,15 @@ header .header-login {
   margin: 40px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 100px;
+  gap: 10px
 }
 .apartment-index-container .card{
   margin: 10px;
   text-align: center;
+  height: 12rem;
+  width: 20rem;
 
 }
 

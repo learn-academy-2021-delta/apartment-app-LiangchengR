@@ -28,36 +28,36 @@ export default class ApartmentIndex extends Component {
         <div className="apartment-index-container">
           {apartments.map((apartment) => {
             return (
-              <Card className="card" key={apartment.id}>
-                <CardBody>
-                  <CardTitle tag="h5">Apartment</CardTitle>
-                  <CardText className="text-muted">
-                    <span>
-                      <FontAwesomeIcon icon={faRoad} className="fa-road" />
-                      {apartment.street}
-                    </span>
-                    <br />
-                    <span>
-                      <FontAwesomeIcon icon={faCity} className="fa-city" />
-                      {apartment.city}
+                <Card className="card" key={apartment.id}>
+                  <CardBody>
+                    <CardTitle tag="h5">Apartment</CardTitle>
+                    <CardText className="text-muted">
+                      <span>
+                        <FontAwesomeIcon icon={faRoad} className="fa-road" />
+                        {apartment.street}
+                      </span>
                       <br />
-                    </span>
-                    <span>
-                      <FontAwesomeIcon icon={faMap} className="fa-map-pin" />
-                      {apartment.state}
-                      <br />
-                    </span>
-                  </CardText>
+                      <span>
+                        <FontAwesomeIcon icon={faCity} className="fa-city" />
+                        {apartment.city}
+                        <br />
+                      </span>
+                      <span>
+                        <FontAwesomeIcon icon={faMap} className="fa-map-pin" />
+                        {apartment.state}
+                        <br />
+                      </span>
+                    </CardText>
 
-                  <NavLink to={`/apartmentshow/${apartment.id}`}>
-                    <Button
-                      onClick={() => this.returnInfo(apartment.id, apartment)}
-                    >
-                      LEARN MORE
-                    </Button>
-                  </NavLink>
-                </CardBody>
-              </Card>
+                    <NavLink to={`/apartmentshow/${apartment.id}`}>
+                      <Button
+                        onClick={() => this.returnInfo(apartment.id, apartment)}
+                      >
+                        LEARN MORE
+                      </Button>
+                    </NavLink>
+                  </CardBody>
+                </Card>
             );
           })}
         </div>

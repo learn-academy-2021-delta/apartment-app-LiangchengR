@@ -12,7 +12,7 @@ class ApartmentsController < ApplicationController
     end
 
     def create
-        @apartment = current_user.apartments.new(ap_params)
+        apartment = current_user.apartments.create(ap_params)
         if apartment.valid?
             render json: apartment
         else

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate} from "react-router-dom";
 
 export default class ApartmentNew extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ export default class ApartmentNew extends Component {
         bedrooms: 0,
         bathrooms: 0,
         pets: "",
+        current_user: undefined,
       },
       submitted: false,
     };
@@ -30,7 +31,12 @@ export default class ApartmentNew extends Component {
   handleSubmit = () => {
     this.props.createNewAp(this.state.form);
     this.setState({ submitted: true });
+    console.log(this.state.current_user);
   };
+
+  componentDidMount() {
+    this.setState({current_user: this.props.currentSession.current_user})
+  }
 
   render() {
     return (
@@ -119,7 +125,7 @@ export default class ApartmentNew extends Component {
           <Button name="submit" onClick={this.handleSubmit} color="success">
             Add Apartment
           </Button>
-          {/* {this.state.submitted && <Redirect to="/apartmentindex" />} */}
+          {this.state.submitted && <Navigate to="/apartmentindex" />}
         </div>
       </>
     );
