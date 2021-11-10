@@ -14,6 +14,8 @@ import { NavLink } from "react-router-dom";
 export default class ApartmentShow extends Component {
   render() {
     const { apartment, id } = this.props;
+    console.log(this.props.currentSession.current_user.id)
+    
     return (
       <>
         <div className="apartment-show-container">
@@ -21,10 +23,12 @@ export default class ApartmentShow extends Component {
             <CardBody>
               <div className="apartment-card-header">
                 <CardTitle tag="h5">Apartment Info</CardTitle>
-                <span className="apartment-show-container-icons">
-                  <FontAwesomeIcon icon={faEdit} className="fa-edit" />
-                  <FontAwesomeIcon icon={faTrash} className="fa-trash-alt" />
-                </span>
+                { (this.props.currentSession.current_user.id === apartment.user_id) &&
+                  (<span className="apartment-show-container-icons">
+                    <FontAwesomeIcon icon={faEdit} className="fa-edit" />
+                    <FontAwesomeIcon icon={faTrash} className="fa-trash-alt" />
+                  </span>)
+                }
               </div>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 Street: {apartment.street}

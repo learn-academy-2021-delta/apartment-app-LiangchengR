@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       apartments: [],
       currentID: "",
-      currentApartment: undefined
+      currentApartment: undefined,
+      currentSession: {...this.props},
     };
   }
 
@@ -67,6 +68,7 @@ class App extends Component {
                 <ApartmentShow
                   id={this.state.currentID}
                   apartment={this.state.currentApartment}
+                  currentSession={this.state.currentSession}
                 />
               }
             />
