@@ -16,7 +16,7 @@ export default class ApartmentNew extends Component {
         bedrooms: 0,
         bathrooms: 0,
         pets: "",
-        current_user: undefined,
+        user_id: this.props.currentSession.current_user.id,
       },
       submitted: false,
     };
@@ -31,12 +31,8 @@ export default class ApartmentNew extends Component {
   handleSubmit = () => {
     this.props.createNewAp(this.state.form);
     this.setState({ submitted: true });
-    console.log(this.state.current_user);
   };
 
-  componentDidMount() {
-    this.setState({current_user: this.props.currentSession.current_user})
-  }
 
   render() {
     return (

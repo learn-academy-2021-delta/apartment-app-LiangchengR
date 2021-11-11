@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import bg from "../assets/app-bg.png"
-import { Button } from "reactstrap";
 
 export default class Home extends Component {
     render() {

@@ -32,15 +32,7 @@ RSpec.describe "Apartments", type: :request do
 
   describe "POST /create" do
     it "creates an apartment" do
-      
-
-      current_user= {
-          id: 2, 
-          email: 'user@testing.com', 
-          created_at: '2021-11-10T03:18:36.360Z', 
-          updated_at: '2021-11-10T05:19:50.194Z'
-        }
-
+ 
       ap_params = {
         apartment: {
           street: "1895 Golden St UNIT 2",
@@ -52,6 +44,7 @@ RSpec.describe "Apartments", type: :request do
           bedrooms: 2,
           bathrooms: 2,
           pets: "true",
+          user_id: user.id
           
         }
       }
@@ -69,6 +62,7 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment['bedrooms']).to eq 2
       expect(apartment['bathrooms']).to eq 2
       expect(apartment['pets']).to eq "true"
+      expect(apartment['user_id']).to eq user.id
     end
   end
 
