@@ -41,7 +41,14 @@ export default class ProtectedIndex extends Component {
                           style={{ color: "#00cc66" }}
                         />
                       </NavLink>
-                      <NavLink to={`/`}>
+                      <NavLink
+                        onClick={() =>
+                          confirm(
+                            "Are you sure you want to delete this apartment listing?"
+                          ) && this.props.deleteAp(apartment.id)
+                        }
+                        to={`/protectedindex`}
+                      >
                         <FontAwesomeIcon
                           icon={faTrash}
                           className="fa-trash-alt"

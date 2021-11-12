@@ -120,5 +120,31 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment['user_id']).to eq user.id
     end
   end
+  describe "DELETE /destroy" do
+    it "destroys an apartment" do
+      ap_params = {
+        apartment: {
+          street: "1895 Golden St UNIT 2",
+          city: "Tampa",
+          state: "FL",
+          manager: "Jenna Smith",
+          email: "jsmith@test.com",
+          price: "$1,000",
+          bedrooms: 2,
+          bathrooms: 2,
+          pets: "true",
+          user_id: user.id
+          
+        }
+      }
+
+      post '/apartments', params: ap_params
+      apartment = Apartment.first
+      
+      delete "/apartments/#{apartment.id}"
+      apartment = Apartment.first
+      expect(apartment).to eq nil
+    end
+  end
 
 end

@@ -21,6 +21,6 @@ it("ApartmentShow renders content", () => {
   expect(ApShow.find("FontAwesomeIcon").length).toEqual(2);
   expect(ApShow.find("CardSubtitle").length).toEqual(1);
   expect(ApShow.find("CardText").length).toEqual(1);
-  expect(ApShow.find("NavLink").length).toEqual(1);
+  expect(ApShow.find("NavLink").length).toEqual(3);
   expect(ApShow.find("Button").length).toEqual(1);
 });

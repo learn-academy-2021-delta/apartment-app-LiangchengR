@@ -78,11 +78,19 @@ class App extends Component {
     .catch(errors => console.log("Apartment edit errors:", errors))
   }
 
-  deleteAp = () => {
-
+  deleteAp = (id) => {
+    fetch(`/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((payload) => this.apartmentRead())
+      .catch((errors) => console.log("Apartment delete errors:", errors));
   }
 
-  
+
   render() {
     // console.log("logged in:", this.props.logged_in);
     // console.log("current user:", this.props.current_user);
@@ -113,6 +121,7 @@ class App extends Component {
               path="/apartmentshow/:id"
               element={
                 <ApartmentShow
+                  deleteAp={this.deleteAp}
                   id={this.state.currentID}
                   apartment={this.getApByID(this.state.currentID)}
                   currentSession={this.state.currentSession}
@@ -124,6 +133,7 @@ class App extends Component {
                 path="/protectedindex"
                 element={
                   <ProtectedIndex
+                    deleteAp={this.deleteAp}
                     apartments={apartments.filter(
                       (apartment) =>
                         apartment.user_id === this.props.current_user.id

@@ -37,7 +37,11 @@ export default class ApartmentShow extends Component {
                         style={{ color: "#00cc66" }}
                       />
                     </NavLink>
-                    <NavLink to={`/`}>
+                    <NavLink
+                      // 
+                      onClick={() => (confirm("Are you sure you want to delete this apartment listing?") && this.props.deleteAp(apartment.id))}
+                      to={`/apartmentindex`}
+                    >
                       <FontAwesomeIcon
                         icon={faTrash}
                         className="fa-trash-alt"
