@@ -8,7 +8,7 @@ RSpec.describe "Apartments", type: :request do
 
    describe "GET /index" do
     it "retrieves list of apartments" do
-      Apartment.create street:"6460 Convoy Ct SPACE 112", city:"Detroit", state:"MI", manager:"Tyler Thomas", email:"tthomas@test.com", price:600000, bedrooms:5, bathrooms:4, pets:"true", user_id: user.id
+      Apartment.create street:"6460 Convoy Ct SPACE 112", city:"Detroit", state:"MI", manager:"Tyler Thomas", email:"tthomas@test.com", price:"$600,000", bedrooms:5, bathrooms:4, pets:"true", user_id: user.id
 
       get '/apartments'
       
@@ -29,4 +29,42 @@ RSpec.describe "Apartments", type: :request do
 
     end
   end
+
+  describe "POST /create" do
+    it "creates an apartment" do
+ 
+      ap_params = {
+        apartment: {
+          street: "1895 Golden St UNIT 2",
+          city: "Tampa",
+          state: "FL",
+          manager: "Jenna Smith",
+          email: "jsmith@test.com",
+          price: "$1,000",
+          bedrooms: 2,
+          bathrooms: 2,
+          pets: "true",
+          user_id: user.id
+          
+        }
+      }
+
+      post '/apartments', params: ap_params
+      
+      expect(response).to have_http_status(200)
+      apartment = Apartment.first
+      expect(apartment['street']).to eq "1895 Golden St UNIT 2"
+      expect(apartment['city']).to eq "Tampa"
+      expect(apartment['state']).to eq "FL"
+      expect(apartment['manager']).to eq "Jenna Smith"
+      expect(apartment['email']).to eq "jsmith@test.com"
+      expect(apartment['price']).to eq "$1,000"
+      expect(apartment['bedrooms']).to eq 2
+      expect(apartment['bathrooms']).to eq 2
+      expect(apartment['pets']).to eq "true"
+      expect(apartment['user_id']).to eq user.id
+    end
+  end
+
+  
 end

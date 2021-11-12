@@ -103,11 +103,15 @@ header .header-login {
   margin: 40px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 100px;
+  gap: 10px
 }
 .apartment-index-container .card{
   margin: 10px;
   text-align: center;
+  height: 12rem;
+  width: 20rem;
 
 }
 
@@ -173,4 +177,23 @@ header .header-login {
 
 .protected-index-container a{
   margin-top: 10px;
+}
+
+//new ap bttn
+.other-bttn{
+  text-align: right;
+  margin: 10px
+}
+
+//apartment form
+.apform-container{
+  margin: 20px 20% 100px 20%;
+}
+
+.apform-container label{
+  margin: 20px 0 0 0;
+}
+
+.apform-container Button{
+  margin: 5px 5px 5px 0;
 }

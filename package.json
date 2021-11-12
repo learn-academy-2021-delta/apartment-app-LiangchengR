@@ -29,9 +29,14 @@
     "react-test-renderer": "^17.0.2",
     "webpack-dev-server": "^3"
   },
-  "jest": {
+
+    "jest": {
     "roots": [
       "app/javascript/components"
-    ]
-  }
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>app/javascript/components/image-stub.js",
+      "\\.(css|less)$": "<rootDir>app/javascript/components/image-stub.js"
+    }
+}
 }
