@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardBody, CardTitle, CardText, CardSubtitle, Button } from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, CardSubtitle, Button} from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -9,8 +9,9 @@ export default class ProtectedIndex extends Component {
     super(props);
   }
 
-  returnInfo = (id, apartment) => {
-    this.props.getInfo(id, apartment);
+  returnInfo = (id) => {
+    console.log("this is passing info from protected to app" + id);
+    this.props.getInfo(id);
   };
 
   render() {
@@ -30,11 +31,23 @@ export default class ProtectedIndex extends Component {
                   <div className="apartment-card-header">
                     <CardTitle tag="h5">Apartment Info</CardTitle>
                     <span className="apartment-show-container-icons">
-                      <FontAwesomeIcon icon={faEdit} className="fa-edit" />
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        className="fa-trash-alt"
-                      />
+                      <NavLink
+                        onClick={() => this.returnInfo(apartment.id)}
+                        to={`/apartmentsedit/${apartment.id}`}
+                      >
+                        <FontAwesomeIcon
+                          icon={faEdit}
+                          className="fa-edit"
+                          style={{ color: "#00cc66" }}
+                        />
+                      </NavLink>
+                      <NavLink to={`/`}>
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="fa-trash-alt"
+                          style={{ color: "#ff0000" }}
+                        />
+                      </NavLink>
                     </span>
                   </div>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">

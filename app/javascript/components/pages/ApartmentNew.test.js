@@ -13,5 +13,6 @@ it("ApartmentNew renders content", () => {
     expect(ApNew.find("FormGroup").length).toEqual(1);
     expect(ApNew.find("Label").length).toEqual(9);
     expect(ApNew.find("Input").length).toEqual(9);
+    expect(ApNew.find("h2").text()).toEqual("New Apartment");
 
 });

@@ -9,9 +9,9 @@ export default class ApartmentIndex extends Component {
     super(props);
   }
 
-  returnInfo = (id, apartment) => {
-    console.log("passing id:" + id + " passing apartment" + apartment.street);
-    this.props.getInfo(id, apartment);
+  returnInfo = (id) => {
+    console.log("passing id to App:" + id );
+    this.props.getInfo(id);
   };
 
   render() {
@@ -32,7 +32,7 @@ export default class ApartmentIndex extends Component {
                   <CardBody>
                     <CardTitle tag="h5">Apartment</CardTitle>
                     <CardText className="text-muted">
-                      <span>
+                    <span>
                         <FontAwesomeIcon icon={faRoad} className="fa-road" />
                         {apartment.street}
                       </span>
@@ -51,7 +51,7 @@ export default class ApartmentIndex extends Component {
 
                     <NavLink to={`/apartmentshow/${apartment.id}`}>
                       <Button
-                        onClick={() => this.returnInfo(apartment.id, apartment)}
+                        onClick={() => this.returnInfo(apartment.id)}
                       >
                         LEARN MORE
                       </Button>

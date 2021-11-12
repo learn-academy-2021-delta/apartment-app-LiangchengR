@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 
 export default class ApartmentShow extends Component {
   render() {
-    const { apartment, id } = this.props;
+    const { apartment } = this.props;
     
     return (
       <>
@@ -30,8 +30,20 @@ export default class ApartmentShow extends Component {
                 {this.props.currentSession.current_user.id ===
                   apartment.user_id && (
                   <span className="apartment-show-container-icons">
-                    <FontAwesomeIcon icon={faEdit} className="fa-edit" />
-                    <FontAwesomeIcon icon={faTrash} className="fa-trash-alt" />
+                    <NavLink to={`/apartmentsedit/${apartment.id}`}>
+                      <FontAwesomeIcon
+                        icon={faEdit}
+                        className="fa-edit"
+                        style={{ color: "#00cc66" }}
+                      />
+                    </NavLink>
+                    <NavLink to={`/`}>
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        className="fa-trash-alt"
+                        style={{ color: "#ff0000" }}
+                      />
+                    </NavLink>
                   </span>
                 )}
               </div>

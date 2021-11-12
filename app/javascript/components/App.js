@@ -10,6 +10,7 @@ import ApartmentIndex from "./pages/ApartmentIndex";
 import ApartmentShow from "./pages/ApartmentShow";
 import ProtectedIndex from "./pages/ProtectedIndex";
 import ApartmentNew from "./pages/ApartmentNew";
+import ApartmentEdit from "./pages/ApartmentEdit";
 
 class App extends Component {
   constructor(props) {
@@ -17,18 +18,20 @@ class App extends Component {
     this.state = {
       apartments: [],
       currentID: "",
-      currentApartment: undefined,
       currentSession: {...this.props},
     };
+  }
+
+  getApByID = (id) => {
+    return this.state.apartments.find(a => a.id === id)
   }
 
   componentDidMount() {
     this.apartmentRead();
   }
 
-  getInfo = (id, apartment) => {
-    this.setState({ currentID: id, currentApartment: apartment });
-    console.log("getInfo ran");
+  getInfo = (id) => {
+    this.setState({ currentID: id });
   };
 
   apartmentRead = () => {
@@ -39,7 +42,6 @@ class App extends Component {
   };
 
   createNewAp = (newAp) => {
-    console.log(newAp)
     fetch("/apartments", {
       body: JSON.stringify(newAp),
       headers: {
@@ -57,6 +59,30 @@ class App extends Component {
       .catch((errors) => console.log("Apartment create errors:", errors))
   }
 
+  updateAp = (editAp, id) => {
+    console.log(editAp, id);
+    fetch(`/apartments/${id}`, {
+      body: JSON.stringify(editAp),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then(response => {
+        if (response.status === 422) {
+          alert("Please check your submission.");
+        }
+        return response.json();
+      })
+      .then(payload => this.apartmentRead())
+    .catch(errors => console.log("Apartment edit errors:", errors))
+  }
+
+  deleteAp = () => {
+
+  }
+
+  
   render() {
     // console.log("logged in:", this.props.logged_in);
     // console.log("current user:", this.props.current_user);
@@ -88,7 +114,7 @@ class App extends Component {
               element={
                 <ApartmentShow
                   id={this.state.currentID}
-                  apartment={this.state.currentApartment}
+                  apartment={this.getApByID(this.state.currentID)}
                   currentSession={this.state.currentSession}
                 />
               }
@@ -112,6 +138,18 @@ class App extends Component {
               element={
                 <ApartmentNew
                   createNewAp={this.createNewAp}
+                  currentSession={this.state.currentSession}
+                />
+              }
+            />
+
+            <Route
+              path="/apartmentsedit/:id"
+              element={
+                <ApartmentEdit
+                  id={this.state.currentID}
+                  updateAp={this.updateAp}
+                  apartment={this.getApByID(this.state.currentID)}
                   currentSession={this.state.currentSession}
                 />
               }
