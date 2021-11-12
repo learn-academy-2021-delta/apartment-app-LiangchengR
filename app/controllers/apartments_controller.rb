@@ -1,7 +1,6 @@
 
 class ApartmentsController < ApplicationController
     
-
     def set_current_user
       User.current = current_user
     end
@@ -18,6 +17,22 @@ class ApartmentsController < ApplicationController
         else
             render json: apartment.errors, status: 422
         end
+    end
+
+    def update
+        apartment = Apartment.find(params[:id])
+        apartment.update(ap_params)
+        if apartment.valid?
+            render json: apartment
+        else 
+            render json: apartment.errors, status: 422
+        end
+    end
+
+    def destroy
+        apartment = Apartment.find(params[:id])
+        apartment.destroy
+        render json: apartment
     end
 
     private

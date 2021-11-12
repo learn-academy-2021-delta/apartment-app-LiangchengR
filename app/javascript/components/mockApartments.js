@@ -1,5 +1,6 @@
 let apartments = [
   {
+    id: 1,
     street: "8694 New Salem St UNIT 202",
     city: "San Diego",
     state: "CA",
@@ -13,6 +14,7 @@ let apartments = [
   },
 
   {
+    id: 2,
     street: "13312 Caminito Ciera UNIT 194",
     city: "San Diego",
     state: "CA",
@@ -26,6 +28,7 @@ let apartments = [
   },
 
   {
+    id: 3,
     street: "6460 Convoy Ct SPACE 112",
     city: "Detroit",
     state: "MI",
@@ -39,6 +42,7 @@ let apartments = [
   },
 
   {
+    id: 4,
     street: "123 Wellingtont UNIT 132",
     city: "Middle Island",
     state: "NY",
@@ -48,8 +52,8 @@ let apartments = [
     bedrooms: 1,
     bathrooms: 1,
     pets: "false",
-    user_id: 2
-  }
+    user_id: 2,
+  },
 ];
 
 export default apartments

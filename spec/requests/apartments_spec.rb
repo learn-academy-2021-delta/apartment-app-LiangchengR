@@ -66,5 +66,85 @@ RSpec.describe "Apartments", type: :request do
     end
   end
 
-  
+  describe "PATCH /update" do
+    it "updates an apartment" do
+ 
+      ap_params = {
+        apartment: {
+          street: "1895 Golden St UNIT 2",
+          city: "Tampa",
+          state: "FL",
+          manager: "Jenna Smith",
+          email: "jsmith@test.com",
+          price: "$1,000",
+          bedrooms: 2,
+          bathrooms: 2,
+          pets: "true",
+          user_id: user.id
+          
+        }
+      }
+
+      post '/apartments', params: ap_params
+      apartment = Apartment.first
+
+      updated_ap_params = {
+        apartment: {
+          street: "123 change street",
+          city: "Tampa",
+          state: "FL",
+          manager: "Jenna Smith",
+          email: "jsmith@test.com",
+          price: "$1,000",
+          bedrooms: 2,
+          bathrooms: 2,
+          pets: "true",
+          user_id: user.id
+        }
+      }
+
+      patch "/apartments/#{apartment.id}", params: updated_ap_params
+      apartment = Apartment.first
+
+      expect(response).to have_http_status(200)
+      apartment = Apartment.first
+      expect(apartment['street']).to eq "123 change street"
+      expect(apartment['city']).to eq "Tampa"
+      expect(apartment['state']).to eq "FL"
+      expect(apartment['manager']).to eq "Jenna Smith"
+      expect(apartment['email']).to eq "jsmith@test.com"
+      expect(apartment['price']).to eq "$1,000"
+      expect(apartment['bedrooms']).to eq 2
+      expect(apartment['bathrooms']).to eq 2
+      expect(apartment['pets']).to eq "true"
+      expect(apartment['user_id']).to eq user.id
+    end
+  end
+  describe "DELETE /destroy" do
+    it "destroys an apartment" do
+      ap_params = {
+        apartment: {
+          street: "1895 Golden St UNIT 2",
+          city: "Tampa",
+          state: "FL",
+          manager: "Jenna Smith",
+          email: "jsmith@test.com",
+          price: "$1,000",
+          bedrooms: 2,
+          bathrooms: 2,
+          pets: "true",
+          user_id: user.id
+          
+        }
+      }
+
+      post '/apartments', params: ap_params
+      apartment = Apartment.first
+      
+      delete "/apartments/#{apartment.id}"
+      apartment = Apartment.first
+      expect(apartment).to eq nil
+    end
+  end
+
 end
